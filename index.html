@@ -1,75 +1,58 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2575.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;Bulk Find &amp; Replace Tool&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>textarea, input { width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>button { padding: 10px 20px; cursor: pointer; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>#output { white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; min-height: 100px; margin-top: 10px; }</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;body&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Bulk Find &amp; Replace Tool&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter your main text:&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="text" rows="6" placeholder="Paste your text here..."&gt;&lt;/textarea&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter Find values (one per line):&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="find" rows="6" placeholder="One value per line"&gt;&lt;/textarea&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Enter Replace values (matching order):&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;textarea id="replace" rows="6" placeholder="One value per line"&gt;&lt;/textarea&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button onclick="process()"&gt;Replace&lt;/button&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h3&gt;Output:&lt;/h3&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="output"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p style="font-size: 12px; margin-top: 20px;"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>Like this tool? Support at &lt;a href="https://www.buymeacoffee.com/donate2mrpress" target="_blank" rel="noopener"&gt;buymeacoffee.com/donate2mrpress&lt;/a&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>function process() {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const text = document.getElementById('text').value;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const find = document.getElementById('find').value;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const replace = document.getElementById('replace').value;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const finds = find.split('\n');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>const replaces = replace.split('\n');</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>if (finds.length !== replaces.length) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>document.getElementById('output').textContent = 'Error: Find and Replace lists must be the same length.';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>return;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>let result = text;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>for (let i = 0; i &lt; finds.length; i++) {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const findVal = finds[i];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const replaceVal = replaces[i];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>const regex = new RegExp(findVal, 'g');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>result = result.replace(regex, replaceVal);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>document.getElementById('output').textContent = result;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
-</body>
+  <head>
+    <title>Bulk Find & Replace Tool</title>
+    <style>
+      body { font-family: Arial; padding: 20px; max-width: 600px; margin: auto; }
+      textarea, input { width: 100%; margin: 10px 0; padding: 10px; box-sizing: border-box; }
+      button { padding: 10px 20px; cursor: pointer; }
+      #output { white-space: pre-wrap; border: 1px solid #ccc; padding: 10px; min-height: 100px; margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <h2>Bulk Find & Replace Tool</h2>
+    <p>Enter your main text:</p>
+    <textarea id="text" rows="6" placeholder="Paste your text here..."></textarea>
+
+    <p>Enter Find values (one per line):</p>
+    <textarea id="find" rows="6" placeholder="One value per line"></textarea>
+
+    <p>Enter Replace values (matching order):</p>
+    <textarea id="replace" rows="6" placeholder="One value per line"></textarea>
+
+    <button onclick="process()">Replace</button>
+
+    <h3>Output:</h3>
+    <div id="output"></div>
+
+    <p style="font-size: 12px; margin-top: 20px;">
+      Like this tool? Support at <a href="https://www.buymeacoffee.com/donate2mrpress" target="_blank" rel="noopener">buymeacoffee.com/donate2mrpress</a>
+    </p>
+
+    <script>
+      function process() {
+        const text = document.getElementById('text').value;
+        const find = document.getElementById('find').value;
+        const replace = document.getElementById('replace').value;
+
+        const finds = find.split('\n');
+        const replaces = replace.split('\n');
+
+        if (finds.length !== replaces.length) {
+          document.getElementById('output').textContent = 'Error: Find and Replace lists must be the same length.';
+          return;
+        }
+
+        let result = text;
+        for (let i = 0; i < finds.length; i++) {
+          const findVal = finds[i];
+          const replaceVal = replaces[i];
+          const regex = new RegExp(findVal, 'g');
+          result = result.replace(regex, replaceVal);
+        }
+
+        document.getElementById('output').textContent = result;
+      }
+    </script>
+  </body>
 </html>
